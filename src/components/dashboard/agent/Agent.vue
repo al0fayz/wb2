@@ -3,7 +3,7 @@
         <div class="hold-transition sidebar-mini layout-fixed">
             <div class="wrapper">
                 <Navbar />
-                <SidebarAdmin />
+                <SidebarAgent />
                 <div class="content-wrapper">
                     <router-view />
                 </div>
@@ -15,7 +15,7 @@
 <script>
 import Footer from '../../layout/Footer.vue';
 import Navbar from '../../layout/Navbar.vue';
-import SidebarAdmin from '../../layout/SidebarAdmin.vue';
+import SidebarAgent from '../../layout/SidebarAgent.vue';
 
 export default {
     data(){
@@ -29,7 +29,7 @@ export default {
     components:{
         Footer,
         Navbar,
-        SidebarAdmin,
+        SidebarAgent,
     }
 }
 </script>
