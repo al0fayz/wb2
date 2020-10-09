@@ -1,22 +1,20 @@
 import axios from 'axios';
-import { config } from '../config/config';
 
-const API_URL = config.API_URL;
-console.log(API_URL, process.env.API_URL)
+const API_URL = process.env.VUE_APP_API_URL;
+
 class AuthService {
   login(user) {
     return axios
-      .post(API_URL + '/api/v2/login', {
+      .post(API_URL + '/api/login', {
         username: user.username,
         password: user.password
       })
-      .then(response => {
-        console.log(response)
-        if (response.data.accessToken) {
-          localStorage.setItem('user', JSON.stringify(response.data));
+      .then((res) => {
+        if (res.data.auth && res.data.user) {
+          localStorage.setItem('user', JSON.stringify(res.data));
         }
 
-        return response.data;
+        return res.data;
       });
   }
 

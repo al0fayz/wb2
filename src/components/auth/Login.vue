@@ -60,16 +60,23 @@ export default {
   },
   methods: {
     handleLogin() {
+      this.$Progress.start()
       this.run = true;
       this.$store.dispatch('auth/login', this.user).then(
         (res) => {
+          this.$Progress.finish()
           console.log(res)
-
           this.$router.push('/admin/dashboard');
         },
         error => {
+          this.$Progress.fail()
           this.run = false;
-          console.log(error)
+          Swal.fire(
+              'Sory!',
+              error.response.data.error,
+              "error"
+          )
+
         }
       );
       this.run = false;

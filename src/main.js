@@ -6,6 +6,27 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 require('./bootstrap')
+//alert
+import Swal from 'sweetalert2'
+window.Swal = Swal;
+const toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000
+})
+window.toast = toast;
+
+//fire
+window.Fire = new Vue();
+
+//progresBar 
+import VueProgressBar from 'vue-progressbar'
+Vue.use(VueProgressBar, {
+    color: 'rgb(50, 227, 23)',
+    failedColor: 'red',
+    height: '3px'
+})
 
 //router handle
 import VueRouter from 'vue-router'
