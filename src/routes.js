@@ -32,6 +32,10 @@ export const myRoutes = [
             {
                 path: 'admin',
                 component: Admin,
+                meta: {
+                    requiresAuth: true,
+                    permission: 1
+                },
                 children: [
                     {
                         path: 'dashboard',
